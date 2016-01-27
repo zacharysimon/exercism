@@ -17,6 +17,7 @@ end
 
 class HelloWorldTest < Minitest::Test
   def test_no_name
+    # can I change this test so that it passes in a blank argument?
     assert_equal 'Hello, World!', HelloWorld.hello
   end
 
@@ -25,7 +26,6 @@ class HelloWorldTest < Minitest::Test
   end
 
   def test_other_sample_name
-    skip
     assert_equal 'Hello, Bob!', HelloWorld.hello('Bob')
   end
 end
