@@ -1,27 +1,45 @@
 class Prime
 
-  
   def nth(number)
+    check_weird_case(number)
 
-    primes = [2]
+    @primes = [2]
     i = 0
     
-    while primes.length < number
-        primes.each do |prime|
-          if (primes[-1] + i) % prime != 0
-            primes << (primes[-1] + i)
-            break 
-          end
-        end
+    while @primes.length < number
+      next_number = (@primes[-1] + i)
+      if prime_checker(next_number)
+        @primes << (next_number) 
+        i = 0
+      end
       i += 1
     end
 
-    primes[-1]
+    @primes[-1]
+  end
+
+  def check_weird_case(number)
+    if number == 0
+      raise ArgumentError.new("This a weird case")
+    end
   end
 
 
-  def counter 
+  def prime_checker(number)
+    upper_bound = Math.sqrt(number).floor
+    test_condition = true
+    
+    @primes.each do |prime|
+      if number % prime == 0
+        test_condition = false
+        break 
+      end
+      if prime > upper_bound
+        break
+      end
+    end
 
+    test_condition
   end
 end
 
