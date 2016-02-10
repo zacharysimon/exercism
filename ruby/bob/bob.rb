@@ -4,33 +4,23 @@ class Bob
     @remark = remark
     @remark_array = remark.split('')
 
-    if yelling? 
-      bobs_response = "Whoa, chill out!"
-    elsif question? 
-      bobs_response = "Sure."
-    elsif saying_anything?
-      bobs_response = "Fine. Be that way!"
-    else bobs_response = "Whatever."
-    end
+    return "Whoa, chill out!" if yelling?
+    return "Sure." if question?
+    return "Fine. Be that way!" if saying_anything?
+    return "Whatever."
 
   end
 
   def yelling?
-    if @remark == @remark.upcase && has_letters?
-      return_value = true
-    end
+    return true if @remark == @remark.upcase && has_letters?
   end
 
   def question? 
-    if @remark_array[-1] == "?"
-      return_value = true
-    end
+    return true if @remark_array[-1] == "?"
   end  
 
   def saying_anything?
-    if !has_letters? && !has_numbers?
-      return_value = true
-    end
+    return true if !has_letters? && !has_numbers?
   end
 
   def has_letters?
