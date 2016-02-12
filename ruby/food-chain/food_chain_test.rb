@@ -22,6 +22,7 @@ class FoodChainTest < Minitest::Test
   # to make sure you got it right.
   # There's no need to submit the tests you write, unless you
   # specifically want feedback on them.
+
   def test_the_whole_song
     song_file = File.expand_path('../song.txt', __FILE__)
     expected  = IO.read(song_file)
